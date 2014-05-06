@@ -17,11 +17,11 @@
     <div class="header">
         <h3>ISN Admin Panel</h3>
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Pages</a></li>
-            <li><a href="">Media</a></li>
-            <li><a href="">Settings</a></li>
-            <li><a href="">Logout</a></li>
+            <li><a href="<?php echo $this->webroot;?>dashboard/">Home</a></li>
+            <li><a href="<?php echo $this->webroot;?>dashboard/pages">Pages</a></li>
+            <li><a href="<?php echo $this->webroot;?>dashboard/media">Media</a></li>
+            <li><a href="<?php echo $this->webroot;?>dashboard/settings">Settings</a></li>
+            <li><a href="<?php echo $this->webroot;?>dashboard/logout">Logout</a></li>
             
         </ul>
         <div class="clear"></div>
