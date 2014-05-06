@@ -13,8 +13,22 @@
 		
 	</head>
 	<body>
+    <div class="wrapper">
+    <div class="header">
+        <h3>ISN Admin Panel</h3>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Pages</a></li>
+            <li><a href="">Media</a></li>
+            <li><a href="">Settings</a></li>
+            <li><a href="">Logout</a></li>
+            
+        </ul>
+        <div class="clear"></div>
+    </div>
     <div class="content">
     <?php echo $this->fetch('content'); ?>
+    </div>
     </div>
     </body>
 </html>

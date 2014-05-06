@@ -1,1 +1,9 @@
 .loginfrm{width:400px;margin:100px auto;background:#e5e5e5;color:#333;padding:10px;border-radius:10px;text-align:center;}
+.wrapper{width:950px;margin:0 auto;}
+.clear{clear:both;}
+.header{background:#444;color:#FFF;height:70px;padding:10px;border-radius:10px 10px 0 0;}
+.header h3{float:left;}
+.header ul{list-style: none;float: right;margin:0;padding:0}
+.header li{display:inline-block;}
+.header a{text-decoration: none;display:block;padding:20px 25px;color:#FFF;}
+.content{padding:20px 10px;border: 1px solid #999; border-radius:0 0 10px 10px;}
