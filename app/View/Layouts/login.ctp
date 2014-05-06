@@ -8,10 +8,12 @@
 	<head>
 		<title>Islami Sangh Nepal</title>
 			<link href="<?php echo $this->webroot;?>css/admin.css" rel="stylesheet" type="text/css" />
+            <link href="<?php echo $this->webroot;?>css/bootstrap.css" rel="stylesheet" type="text/css" />
 		
 		
 	</head>
 	<body>
-<?php echo $this->fetch('content'); ?>
-</body>
+    
+    <?php echo $this->fetch('content'); ?>
+    </body>
 </html>
