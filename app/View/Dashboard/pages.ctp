@@ -11,7 +11,10 @@ foreach($pages as $p)
     <div class="list"><div class="number"><?php echo $i;?>.</div><div class="title"><?php echo $p['Page']['title']?></div><div class="action"><a href="#" class="btn btn-info">Edit</a></div><div class="clear"></div></div>
     
     <?php
+    if($p['Page']['id']==2)
     $q = $this->requestAction('/dashboard/getChild/'.$p['Page']['id']);
+    else
+    $q=false;
     if($q)
     {
         ?>
