@@ -3,7 +3,7 @@
 .clear{clear:both;}
 
 .header{background:#444;color:#FFF;height:70px;padding:10px;border-radius:10px 10px 0 0;}
-h2{font-size:20px!important;color:#444!important;}
+h1,h2{font-size:20px!important;color:#444!important;}
 .header h3{float:left;}
 .header ul{list-style: none;float: right;margin:0;padding:0}
 .header li{display:inline-block;}
@@ -14,3 +14,4 @@ h2{font-size:20px!important;color:#444!important;}
 .list .number{width:50px;float:left;}
 .list .title{width:150px;float:left;}
 .list .action{width:110px;float:right;}
+#flashMessage{padding:10px;border-radius:10px;background:#007CCC;font-weight: bold;font-size: 18px;color:#FFF;}

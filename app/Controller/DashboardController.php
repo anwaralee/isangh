@@ -77,5 +77,22 @@ class DashboardController extends AppController
         $this->Page->delete($id);
         $this->redirect('pages');
     }
+    function settings()
+    {
+        $this->loadModel('Admin');
+        $this->set('a',$this->Admin->find('first'));
+        if(isset($_POST['username']))
+        {
+            foreach($_POST as $k=>$v)
+            {
+                $arr[$k] = $v;
+            }
+            $this->Admin->id = 1;
+           
+            $this->Admin->save($arr);
+            $this->Session->setFlash('Updated successfully');
+            $this->redirect('settings');
+        }
+    }
 }
 ?>
