@@ -32,6 +32,10 @@
     <?php echo $this->Session->flash();?>
     <?php echo $this->fetch('content'); ?>
     </div>
+    <div class="footer">
+        <hr />
+        &copy; Copyright 2014. Islamic Sangh Nepal<br />Powered by <a href="http://web-nepal.com/">Web-Nepal</a>
+    </div>
     </div>
     </body>
 </html>
