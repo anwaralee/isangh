@@ -9,11 +9,11 @@ foreach($pages as $p)
     $i++;
     ?>
 
-    <div class="list"><div class="number"><?php echo $i;?>.</div><div class="title"><?php echo $p['Page']['title']?></div><div class="action"><a href="<?php echo $this->webroot; ?>dashboard/editPage/<?php echo $p['Page']['id'];?>" class="btn btn-info">Edit</a> <?php if($p['Page']['id']==3 ||$p['Page']['id']==4){?><a href="#" class="btn btn-success">Add</a><?php }?></div><div class="clear"></div></div>
+    <div class="list"><div class="number"><?php echo $i;?>.</div><div class="title"><?php echo $p['Page']['title']?></div><div class="action"><a href="<?php echo $this->webroot; ?>dashboard/editPage/<?php echo $p['Page']['id'];?>" class="btn btn-info">Edit</a> <?php if($p['Page']['id']==3 || $p['Page']['id']==4){?><a href="<?php echo $this->webroot; ?>dashboard/addPage/<?php echo $p['Page']['id'];?>" class="btn btn-success">Add</a><?php }?></div><div class="clear"></div></div>
 
     
     <?php
-    if($p['Page']['id']==2 || $p['Page']['id']==3)
+    if($p['Page']['id']==2 || $p['Page']['id']==3 || $p['Page']['id']==4)
     $q = $this->requestAction('/dashboard/getChild/'.$p['Page']['id']);
     else
     $q=false;
@@ -28,7 +28,7 @@ foreach($pages as $p)
         {
             $j++;
             ?>
-            <tr><td><?php echo $j;?></td><td><?php echo $child['Page']['title'];?></td><td><a href="#" class="btn btn-info">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td></tr>
+            <tr><td><?php echo $j;?></td><td><?php echo $child['Page']['title'];?></td><td><a href="<?php echo $this->webroot; ?>dashboard/editPage/<?php echo $child['Page']['id'];?>" class="btn btn-info">Edit</a> <?php if($p['Page']['id']!=2){?><a href="<?php echo $this->webroot; ?>dashboard/deletePage/<?php echo $child['Page']['id'];?>" onclick="return confirm('Are you sure you want to delete this page?');" class="btn btn-danger">Delete</a><?php }?></td></tr>
             <?php    
         }
         ?>

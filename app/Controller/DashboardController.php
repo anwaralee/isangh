@@ -52,6 +52,30 @@ class DashboardController extends AppController
             $this->redirect('/dashboard/pages');
         }
     }
-    
+    function addPage($id)
+    {
+        
+        //$q=$this->Page->find('first',array('conditions'=>array('id'=>$id)));
+        //$this->set('content',$q);
+        if(isset($_POST['submit']))
+        {
+            foreach($_POST as $k=>$v)
+            {
+                $arr[$k] = $v;
+            }
+            $arr['parent'] = $id;
+            $this->loadModel('Page');
+            $this->Page->create();           
+            $this->Page->save($arr);
+            $this->Session->setFlash('Page added successfully');
+            $this->redirect('/dashboard/pages');
+        }
+    }
+    function deletePage($id)
+    {
+        $this->loadModel('Page');
+        $this->Page->delete($id);
+        $this->redirect('pages');
+    }
 }
 ?>
