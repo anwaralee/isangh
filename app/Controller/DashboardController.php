@@ -16,5 +16,18 @@ class DashboardController extends AppController
         
     }
     
+    function logout()
+    {
+        $this->Session->delete('admin');
+        $this->redirect('/admin');
+    }
+    
+    function pages()
+    {
+        $this->loadModel('Page');
+        $q = $this->Page->find('all');
+        $this->set('pages',$q);
+    }
+    
 }
 ?>
