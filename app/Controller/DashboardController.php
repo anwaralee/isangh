@@ -34,5 +34,24 @@ class DashboardController extends AppController
         return $this->Page->find('all',array('conditions'=>array('parent'=>$id)));
     }
     
+    function editPage($id)
+    {
+        $this->loadModel('Page');
+        $q=$this->Page->find('first',array('conditions'=>array('id'=>$id)));
+        $this->set('content',$q);
+        if(isset($_POST['submit']))
+        {
+            foreach($_POST as $k=>$v)
+            {
+                $arr[$k] = $v;
+            }
+            $this->Page->id = $id;
+           
+            $this->Page->save($arr);
+            $this->Session->setFlash('Page updated successfully');
+            $this->redirect('/dashboard/pages');
+        }
+    }
+    
 }
 ?>
