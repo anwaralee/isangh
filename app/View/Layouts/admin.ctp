@@ -9,6 +9,8 @@
 		<title>Islami Sangh Nepal</title>
 			<link href="<?php echo $this->webroot;?>css/admin.css" rel="stylesheet" type="text/css" />
             <link href="<?php echo $this->webroot;?>css/bootstrap.css" rel="stylesheet" type="text/css" />
+            <script src="http://code.jquery.com/jquery-1.10.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="<?php echo $this->webroot;?>js/ckeditor/ckeditor.js"></script>
 		
 		
 	</head>
