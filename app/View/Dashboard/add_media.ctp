@@ -1,30 +1,18 @@
 <?php
     
-    $c = $content;
-    $files = $c['Media']['file'];
-    $arr_ext = array('mp3','wav','doc','pdf','docx');
-    if($files != '')
-    {
-        $arr = explode('.',$files);
-        $ext = end($arr);
-        $ext = strtolower($ext);
-    }
-    else
+    $c['Media']['media_type'] = '';
+    $c['Media']['title'] = '';
+    $c['Media']['description'] = '';
+    $c['Media']['file'] = '';
+    $c['Media']['youtube'] = '';
+    $arr_ext = array();
     $ext = '';
-    $print = "";
-    $publication = "";
-    $av = "";
-    if($c['Media']['media_type']=='Print')
-    $print = "selected='selected'";
-    else
-    if($c['Media']['media_type']=='Publication')
-    $publication = "selected='selected'";
-    else
-    if($c['Media']['media_type']=='Audio-Visual')
-    $av = "selected='selected'";
+    $print = '';
+    $publication = '';
+    $av = '';
 ?>
-<h1>Edit Media Content - <?php echo $c['Media']['media_type'];?></h1>
-<form action="<?php echo $this->webroot; ?>dashboard/editMedia/<?php echo $c['Media']['id']; ?>" method="post" enctype="multipart/form-data">
+<h1>Edit Media Content</h1>
+<form action="<?php echo $this->webroot; ?>dashboard/addMedia" method="post" enctype="multipart/form-data">
 <label>Media Title</label>
 <input type="text" value="<?php echo $c['Media']['title'];?>" name="title" />
 <label>Media Description</label>

@@ -112,7 +112,117 @@ class DashboardController extends AppController
         'order'=>'id DESC'));
         $this->set('content',$q);
     }
-    
+    function editMedia($id)
+    {
+        $this->loadModel('Media');
+        if(isset($_POST) && $_POST)
+        {
+            $this->Media->id = $id;
+            $type = $_POST['media_type'];
+            
+            if($type=="Print" || $type == "Publication")
+            {
+                $f = 1;
+                $_POST['youtube'] = '';
+            }
+            else
+            {
+                if($_POST['av'] == 'a'){
+                $f = 1;
+                $_POST['youtube'] = '';
+                }
+                else{                
+                $f=0;
+                $_POST['file'] = '';
+                }
+                
+            }
+            
+            if($f==1 && isset($_FILES['file']) && $_FILES['file'])
+            {
+                $name = $_FILES['file']['name'];
+                $arr = explode('.',$name);
+                $ext = end($arr);
+                $rand = rand(100000,999999).'_'.rand(100000,999999);
+                $_POST['file'] = $rand.'.'.$ext;
+                $ext = strtolower($ext);
+                if($ext == 'mp3' || $ext == 'wav' || $ext == 'doc' || $ext == 'pdf' || $ext == 'docx')
+                {
+                    $path = $_SERVER['DOCUMENT_ROOT'].'/app/webroot/doc/'.$_POST['file'];
+                    if($_SERVER['SERVER_NAME'] == 'localhost')
+                    {
+                        $path = $_SERVER['DOCUMENT_ROOT'].'/isangh/app/webroot/doc/'.$_POST['file'];
+        			}
+                    move_uploaded_file($_FILES['file']['tmp_name'],$path);
+                }
+                else{
+                $this->Session->setFlash('Invalid File Extension');    
+                $this->redirect('editMedia/'.$id);
+                }
+                
+            }
+            $this->Media->save($_POST);
+            $this->Session->setFlash('Media Successfully Edited!');
+            $this->redirect('media');
+        }
+        $q = $this->Media->findById($id);
+        $this->set('content',$q);
+    }
+    function addMedia()
+    {
+        $this->loadModel('Media');
+        if(isset($_POST) && $_POST)
+        {
+            $this->Media->create();
+            $type = $_POST['media_type'];
+            
+            if($type=="Print" || $type == "Publication")
+            {
+                $f = 1;
+                $_POST['youtube'] = '';
+            }
+            else
+            {
+                if($_POST['av'] == 'a'){
+                $f = 1;
+                $_POST['youtube'] = '';
+                }
+                else{                
+                $f=0;
+                $_POST['file'] = '';
+                }
+                
+            }
+            
+            if($f==1 && isset($_FILES['file']) && $_FILES['file'])
+            {
+                $name = $_FILES['file']['name'];
+                $arr = explode('.',$name);
+                $ext = end($arr);
+                $rand = rand(100000,999999).'_'.rand(100000,999999);
+                $_POST['file'] = $rand.'.'.$ext;
+                $ext = strtolower($ext);
+                if($ext == 'mp3' || $ext == 'wav' || $ext == 'doc' || $ext == 'pdf' || $ext == 'docx')
+                {
+                    $path = $_SERVER['DOCUMENT_ROOT'].'/app/webroot/doc/'.$_POST['file'];
+                    if($_SERVER['SERVER_NAME'] == 'localhost')
+                    {
+                        $path = $_SERVER['DOCUMENT_ROOT'].'/isangh/app/webroot/doc/'.$_POST['file'];
+        			}
+                    move_uploaded_file($_FILES['file']['tmp_name'],$path);
+                }
+                else{
+                $this->Session->setFlash('Invalid File Extension');    
+                $this->redirect('editMedia/'.$id);
+                }
+                
+            }
+            $this->Media->save($_POST);
+            $this->Session->setFlash('Media Successfully Added!');
+            $this->redirect('media');
+        }
+        
+    }
     function deleteMedia($id,$type)
     {
         $this->loadModel('Media');
