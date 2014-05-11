@@ -94,5 +94,30 @@ class DashboardController extends AppController
             $this->redirect('settings');
         }
     }
+    
+    function media()
+    {
+        $this->loadModel('Media');
+        //$q = $this->Media->find('all', array('fields'=>'DISTINCT Media.media_type'));
+//        $this->set('mtype',$q);
+        $q = $this->Media->find('all');
+        $this->set('content',$q);
+    }
+    
+    function viewMedia($type)
+    {
+        $this->loadModel('Media');
+        $q = $this->Media->find('all', array(
+        'conditions'=>array('media_type = '=>$type),
+        'order'=>'id DESC'));
+        $this->set('content',$q);
+    }
+    
+    function deleteMedia($id,$type)
+    {
+        $this->loadModel('Media');
+        $this->Media->delete($id);
+        $this->redirect(array('controller' => 'dashboard', 'action' => 'viewMedia', $type));
+    }
 }
 ?>
