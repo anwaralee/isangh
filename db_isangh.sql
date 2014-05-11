@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 07, 2014 at 07:17 PM
+-- Generation Time: May 11, 2014 at 06:36 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -41,7 +41,34 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `email`, `password`) VALUES
-(1, 'justdoit2045@gmail.com', 'justdoit2045@gmail.com', 'admin');
+(1, 'admin', 'justdoit2045@gmail.com', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media`
+--
+
+CREATE TABLE IF NOT EXISTS `media` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `media_type` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `youtube` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `media`
+--
+
+INSERT INTO `media` (`id`, `media_type`, `title`, `description`, `file`, `youtube`) VALUES
+(11, 'Print', 'Sample title', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>', '962344.pdf', ''),
+(12, 'Publication', 'Sample title 2', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>', '426788.docx', ''),
+(13, 'Audio-Visual', 'Sample title 3', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>', '450051_330657.mp3', ''),
+(14, 'Audio-Visual', 'Sample title 4', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>', '', 'https://www.youtube.com/watch?v=yCjJyiqpAuU'),
+(16, 'Publication', 'Testing', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>', '958004_600646.docx', '');
 
 -- --------------------------------------------------------
 
@@ -55,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `description` text NOT NULL,
   `parent` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `pages`
