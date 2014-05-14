@@ -12,13 +12,13 @@
 		<meta name="keywords" content="" />
 		<link href="http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="<?php echo $this->webroot;?>js/jquery.min.js"></script>
+		<script src="<?php echo $this->webroot;?>js/skel.min.js"></script>
+		<script src="<?php echo $this->webroot;?>js/init.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-wide.css" />
+			<link rel="stylesheet" href="<?php echo $this->webroot;?>css/skel-noscript.css" />
+			<link rel="stylesheet" href="<?php echo $this->webroot;?>css/style.css" />
+			<link rel="stylesheet" href="<?php echo $this->webroot;?>css/style-wide.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
@@ -34,19 +34,22 @@
                     <nav id="nav">
                     <ul>
                     <li>
-                    <a href="#header" class="scrolly">Intro</a>
+                    <a href="#header" class="scrolly">Home</a>
                     </li>
                     <li>
                     <a href="#first" class="scrolly">About Us</a>
                     </li>
                     <li>
-                    <a href="#second" class="scrolly">Mission</a>
+                    <a href="#second" class="scrolly">Departments</a>
                     </li>
                     <li>
-                    <a href="#third" class="scrolly">Portfolio</a>
+                    <a href="#third" class="scrolly">Activities</a>
                     </li>
                     <li>
-                    <a href="#fourth" class="scrolly">Contact</a>
+                    <a href="#fourth" class="scrolly">Media</a>
+                    </li>
+                    <li>
+                    <a href="#fifth" class="scrolly">Contact</a>
                     </li>
                     </ul>
                     </nav>

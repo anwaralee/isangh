@@ -13,124 +13,68 @@
 			<section id="first" class="main">
 				<header>
 					<div class="container">
-						<h2>A Brief Introduction Of Islami Sangh Nepal</h2>
-						<p>Nepal is a landlocked country with India to the east, west and south, and the Tibetan Region of People's Republic of China in the north. Kathmandu is the capital city. Total area of the country is 147,181 sq. km. and total population is 27.4 million. The muslims are in minority consisting of 4.47% of the total population. The majority of muslims are very poor, illiterate, backward and far away from the teachings of Islam.</p> 
-
-                        <p>Islami Sangh, Nepal (previously known as Islami Yuwa Sangh, Nepal) was founded 28 years ago with the purpose of striving to establish Islam in its totality, in all aspects of human life as well as collective; from the reform of inner self to the external world. Islam provides to all section of society, the best means of equity and justice, wefare and reform, progress and prosperity, irrespective of race, region, or language.</p> 
-
-<p>This organization is of the firm conviction that Islam alone offers the best and most suitable solution to the problems faced by our country, including the crisis of thought and action which has gripped the ethical, social, economic and political aspects of life. </p>
-
-<p>Our ultimate motive is to seek the pleasure of Allah s.w.t. We strongly believe and advocate that our success in this world and Hereafter could be possible only by following the Commandments of the Holy Quran and the Sunnah. </p>
-
-<p>Our belief is that the unity and brotherhood among all the Muslims are the pre-requisites of our victory over the evil forces.</p>
-
-<p>Alhamdulillah, today this organization in its mission is working in 8 of 14 zones of Nepal. ISN is now become the distinguished and only organization, which is truly involved in manifold activities throughout the country. It has also become the most popular organization among the Muslims of Nepal because of its sincere and selfless efforts and indeavor of not being involved in the ‘Maslaki’, sectarian and organizational differences. 
-</p>
+						<h2><?php echo $about['Page']['title'];?></h2>
+						<p><?php echo $about['Page']['description'];?></p>
+                        <?php
+                        foreach($achild as $ac)
+                        {
+                            ?>
+                            <h2><?php echo $ac['Page']['title'];?></h2>
+						<p><?php echo $ac['Page']['description'];?></p>
+                            <?php
+                        }
+                        ?>
 					</div>
 				</header>
-				<div class="content dark style1 featured">
-                <h2 style="margin-bottom:70px;font-size:38px;">Branches of the Organizations</h2>
+				<div class="content dark style1 featured"  id="second">
+                <h2 style="margin-bottom:70px;font-size:38px;"><?php echo $depart['Page']['title'];?></h2>
 					<div class="container">
-						<div class="row">
-							<div class="4u">
+						
+                            <?php
+                            $i=0;
+                            foreach($child as $c)
+                            {
+                                $i++;
+                                if(($i-1)%3==0)
+                                {
+                                    
+                                    ?>
+                                    <div class="row">                                  
+                                    <?php
+                                                                    
+                                }                                                                
+                                ?>
+                                <div class="4u">
 								<section>
-									<span class="feature-icon"><span class="fa">1</span></span>
+									<span class="feature-icon"><span class="fa"><?php echo $i;?></span></span>
 									<header>
-										<h3>Tarbiyah work Cell</h3>
+										<h3><?php echo $c['Page']['title'];?></h3>
 									</header>
-									<p>The ISN makes comprehensive attempt for all round intellectual, practical, moral and religious development of its adherents and for the refinement of their capabilities. It strives to strengthen their bond with Allah and inculcate in them a concern for the Hereafter and sense of devotion and obedience to the prophet (peace be upon him); so that they might become sincere followers of Islam, devoted workers for establishment of Deen and embodiments of sacrifice and perseverance in the true path.</p>
+									<div class="div"><?php echo substr($c['Page']['description'],0,170);?><span class="hide<?php echo $i;?>">...</span><span style="display: none;" class="continue<?php echo $i?>"><?php echo substr($c['Page']['description'],200);?></span><br /><a href="javascript:void(0)" class="read" id="read<?php echo $i?>">Continue Reading</a></div>
 								</section>
-							</div>
-							<div class="4u">
-								<section>
-									<span class="feature-icon"><span class="fa">2</span></span>
-									<header>
-										<h3>Da'wah Work  Cell </h3>
-									</header>
-									<p>Apart from the Tarbiyah work cell functions, Da'wah Work Cell undertakes Dawah activities to acquaint fellow countrymen with the basic Islamic concepts of monotheism, prophet hood, life after death and their implications. This cell convinces them that Islam is the only true path as well as just and humane order, which ensures success in this world and in the life Hereafter and rejection of which is liable to lead to ultimate failure in both the worlds. This cell also makes efforts to remove the misunderstandings about Islam, Muslim and the Islamic movement. 
-
-                                        Organizes Seminars to discuss important and current Issues relating to the Muslims in Nepal. Ulamas belonging to all the schools of thought are invited to participate in such meetings. It also organizes programmes to ponder over the prevalent problems faced by the Muslim ummah. This Cell also brings out regularly two monthly and quarterly journals (one in Urdu and another in Nepali language) for the propagation of true teachings of Islam.
-                                        
-                                        Alhamdu Lillah, this Cell has been functioning very satisfactorily over the years. We are extremely grateful to our donor organizations and well-wishers for their sincere help in keeping our efforts alive for the noble cause. May Allah s.w.t. reward them abundantly in this world and more in the Hereafter, Ameen !	
-                                        </p>
-								</section>
-							</div>
-							<div class="4u">
-								<section>
-									<span class="feature-icon"><span class="fa">3</span></span>
-									<header>
-										<h3>Al-Hira Educational Society</h3>
-									</header>
-									<p>This society is striving to spread an educational network by establishing a chain of schools around the country. These schools are serving the younger generation of Muslims by providing them the opportunities to benefit from both the Islamic Traditional education as well as the Modern education. The Society has  successfully been running 13 such schools in different zones of Nepal. More than 5,000 students are enrolled in these schools and 136 trained teachers are appointed to impart quality education and tarbiyah to the children. The Society is also sponsoring more than 450 orphans and needy students. It also conducts Tarbiyyah programmes for the students frequently.</p>
-								</section>
-							</div>
-                            </div>
-                            <div class="row">
-                            
-                            <div class="4u">
-								<section>
-									<span class="feature-icon"><span class="fa">4</span></span>
-									<header>
-										<h3>Masjid Council</h3>
-									</header>
-									<p>This Council is actively involved in renovating the old mosques and constructing new mosques where there is no mosque in the Muslim populated areas. It also arranges Imams for these mosques. The Council has been organizing circles for memorization and propagation of Holy Quran. This council is enjoying 15 Imams noble services who played their active role to improve the society in  playing religious social 8 moral field.</p>
-								</section>
-							</div>
-                            
-							<div class="4u">
-								<section>
-									<span class="feature-icon"><span class="fa">5</span></span>
-									<header>
-										<h3>Students’ Education Foundation Nepal (SEF Nepal)</h3>
-									</header>
-									<p>SEF is a non-profitable and Non-governmental organization, registered with the government of Nepal on 1st January 1996. SEF Nepal works under the umbrella of Islami Sangh Nepal and is engaged in various educational activities directly or indirectly concerned with human development.
-                                    As here in Nepal, Muslims are backward in all the sectors of life, SEF Nepal has tried to identify the essential needs of the community. 
-                                    Since its inception, SEF Nepal is the counterpart organization of scholarship Division, Islamic Development Bank (IDB) Jeddah and is responsible for implementation of IDB Scholarship Programme for graduation program in various professional courses. Beside, SEF conducts guidance and counseling activities as well as skill development programs to enhance the personal skill as well as to make students more competitive. Moreover it connects the Muslim students with the Islamic activities and works for community development projects.
-                                    </p>
-								</section>
-							</div>
-							<div class="4u">
-								<section>
-									<span class="feature-icon"><span class="fa">6</span></span>
-									<header>
-										<h3>HuDA</h3>
-									</header>
-									<p>Human Development Academy (HuDA) is a community based training center which has been established in Bagbazar, Kathmandu in 2009.
-HUDA is focusing on providing vocational training to the Muslims especially those who are from the low income sector. It is expected that by providing training to the members of muslim society it will be possible to have a direct and positive effect on the well being of the whole muslim community. 
-
-HUDA is utilizing volunteers who are affiliated with Muslim community of Kathmandu. Each trainee is expected to participate in a 3 to 12 months training (depending upon the type of training). These trainings provide vocational training through professional teaching methods. 
-Trainees who demonstrate proficiency during the initial training will be invited to participate in Training of Trainers (TOT), an advance training program to learn adult teaching techniques. Each trainee will be a trainer after taking TOT. 
-HUDA has been operated with 6 full and part time staff members. In addition, governing board made up of community members, members of Islami Sangh Nepal is providing overall direction of the center’s operation. 
- Periodic evaluation is conducted to assess the effectiveness of HUDA on (a) helping participants to become professional (b) helping the volunteers to become effective trainers and (c) the improvement of the well being of Muslim community as a whole.
-</p>
-								</section>
-							</div>
-                            </div>
-                            <div class="row">
-                            <div class="4u">
-								<section>
-									<span class="feature-icon"><span class="fa">7</span></span>
-									<header>
-										<h3>HeSRA</h3>
-									</header>
-									<p>HeSRA plays vital role in the field of humanitarian and relief works. HeSRA gives financial assistance for disaster affected poor people. It offers Health services like sanitation, providing fresh and clean drinking water etc. By the grace of Allah; a General and Maternity Clinic was founded in muslim populated area called Bhutaha, Sunsari with financial help of Islami Development Bank, Jeddah. The clinic has 30 beds distinctly for male and female. This hospital is now in need of residential building for physicians, nurses and blood bank. </p>
-								</section>
-							</div>
-							<div class="4u">
-								<section>
-									<span class="feature-icon"><span class="fa">8</span></span>
-									<header>
-										<h3>National Muslim Forum</h3>
-									</header>
-									<p>This department pays its best attention to secure the political welfare of muslim community. It campaigns for muslim rights in the constitution as it is under construction and defend the aggressive activities against muslims. It plays important role in recognizing madrasas, masaajids, and charity trust. The ISN is keen to create golden atmosphere for muslim community, good understanding among them. All these activities are done by the department.</p>
-								</section>
-							</div>
+							     </div>
+                                <?php
+                                if($i%3==0)
+                                    {
+                                        ?>
+                                        </div>
+                                        <?php
+                                    }
+                            }
+                            if($i%3!=0)
+                            {
+                                ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
+							
 							
 						</div>
 						<div class="row">
 							<div class="12u">
 								<footer>
-									<a href="#second" class="button scrolly">The Foundation of ISN</a>
+									<a href="#third" class="button scrolly">Activites Of ISN</a>
 								</footer>
 							</div>
 						</div>
@@ -139,56 +83,48 @@ HUDA has been operated with 6 full and part time staff members. In addition, gov
 			</section>
 
 		<!-- Second -->
-			<section id="second" class="main">
+			<section id="third" class="main">
 				<header>
 					<div class="container">
-						<h2>The Foundation of the Organization</h2>
+						<h2><?php echo $act['Page']['title'];?></h2>
 						<p>
-                            The organization is based on the slogan "La ilaha Illallahu Muhammadur-Rasoolullah {there is no lord but only Almighty Allah and Mohammed (pbuh) is the messenger of Allah}."
-                        </p>     
-                        <p>
-                        All messengers of Allah had an identical mission, termed as Iqamat-e-Deen (i.e. the establishment of the way of life revealed by God). The muslim community ( ummat-e-Muslimah) has the same mission.
-                        </p> 
-                        <p>
-                        The ISN, for attainment of its objective, is bounded principally by the Quran and the Sunnah. In the light of these sources, the organization adopts ethical, constructive, peaceful, democratic and constitutional means. It refrains from such activities, which are opposed to truth and honesty, or which are likely to provoke communal hatred, class conflict or social disorder.
-
+                            <?php echo $act['Page']['description'];?>
                         </p>
+                        <?php
+                        if($actc)
+                        {
+                            foreach($actc as $atc)
+                            {
+                                ?>
+                                <h2><?php echo $atc['Page']['title'];?></h2>
+        						<p>
+                                    <?php echo $atc['Page']['description'];?>
+                                </p>
+                                <?php                                
+                            }
+                        }
+                        ?>
 					</div>
 				</header>
 				<div class="content dark style2">
+                <h2 style="margin-bottom:70px;font-size:38px;text-align: center;">Activites Gallery</h2>
 					<div class="container">
 						<div class="row">
-							<div class="4u">
-								<section>
-									<h3>Activities of the Organization</h3>
-									<p>
-                                    <ul>
-                                        <li>Organize training camps for the preachers, students, youths and conferences for ordinary Muslim masses and symposium among the religious leaders.</li>
-                                        <li>Organize circles of learning Tafseer, Hadith and Fiqh.</li>
-                                        <li>Publish religious books in Nepali language.</li>
-                                        <li>Establish Islamic libraries at zonal and local levels.</li>
-                                        
-                                        <li>Organize work-shops for the preachers and members of the organization so that they can be able to do Da'wah work among the non-Muslims.</li>
-                                        <li>Collaborate with other organizations in the fields of Da'wah and welfare</li>
-                                    </ul>
-                                    </p>
-									<footer>
-										<a href="#third" class="button scrolly">Accumsan nisi tempor</a>
-									</footer>
-								</section>
-							</div>
-							<div class="8u">
+							<div class="12u">
 								<div class="row no-collapse">
-									<div class="6u"><a href="http://ineedchemicalx.deviantart.com/art/You-and-I-collide-401457901" class="image full"><img src="images/pic01.jpg" alt="" /></a></div>
-									<div class="6u"><a href="http://ineedchemicalx.deviantart.com/art/Emperor-of-the-Stars-370265193" class="image full"><img src="images/pic02.jpg" alt="" /></a></div>
+									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic01.jpg" alt="" /></a></div>
+									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic02.jpg" alt="" /></a></div>
+                                    <div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic03.jpg" alt="" /></a></div>
 								</div>
 								<div class="row no-collapse">
-									<div class="6u"><a href="http://ineedchemicalx.deviantart.com/art/Sherlockin-369847236" class="image full"><img src="images/pic03.jpg" alt="" /></a></div>
-									<div class="6u"><a href="http://ineedchemicalx.deviantart.com/art/A-breath-of-Hope-366359145" class="image full"><img src="images/pic04.jpg" alt="" /></a></div>
+									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic04.jpg" alt="" /></a></div>
+									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic05.jpg" alt="" /></a></div>
+                                    <div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic06.jpg" alt="" /></a></div>
 								</div>
 								<div class="row no-collapse">
-									<div class="6u"><a href="http://ineedchemicalx.deviantart.com/art/The-Pursuit-355003425" class="image full"><img src="images/pic05.jpg" alt="" /></a></div>
-									<div class="6u"><a href="http://ineedchemicalx.deviantart.com/art/Cherish-320041163" class="image full"><img src="images/pic06.jpg" alt="" /></a></div>
+									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic07.jpg" alt="" /></a></div>
+									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic08.jpg" alt="" /></a></div>
+                                    <div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic09.jpg" alt="" /></a></div>
 								</div>
 							</div>
 						</div>
@@ -197,54 +133,64 @@ HUDA has been operated with 6 full and part time staff members. In addition, gov
 			</section>
 			
 		<!-- Third -->
-			<section id="third" class="main">
+			<section class="main" id="fourth">
 				<header>
 					<div class="container">
-						<h2>Ornare varius lorem ipsum ante lectus</h2>
-						<p>Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet consequat<br />
-						feugiat. Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet.</p>
+						<h2>ISN Media</h2>
+						<p>We are pleased to introduce all of our media including print, publication and audio visual to all of our viewers. Feel free to access each of them and take benefit from them. Please browse below to see our listed media.</p>
 					</div>
 				</header>
 				<div class="content dark style3">
 					<div class="container">
-						<span class="image featured"><img src="images/pic07.jpg" alt="" /></span>
+						<span class="image featured"><img src="images/pic10.jpg" alt="" /></span>
 						<div class="row">
 							<div class="4u">
-								<h3>Diam vivamus turpis lorem sodales lectus ornare</h3>
-								<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales. Diam 
-								tempor dui lacinia eget ornare varius gravida. Gravida dis placerat lectus ante 
-								vel nunc euismod est turpis sodales. Diam tempor dui lacinia accumsan vivamus 
-								augue cubilia vivamus nisi eu eget ornare varius gravida euismod.  Gravida dis 
-								lorem ipsum dolor placerat magna tempus feugiat.</p>
-								<p>Lectus ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia 
-								accumsan vivamus augue cubilia vivamus nisi eu eget ornare varius gravida dolore 
-								euismod lorem ipsum dolor sit amet consequat. vivamus nisi eu eget ornare varius 
-								gravida dolore euismod lorem ipsum dolor sit amet consequat. vivamus nisi eu 
-								eget ornare et magna.</p>
+								<h3>Print</h3>
+								<div class="div">
+                                    <?php
+                                    foreach($print as $p)
+                                    {
+                                        ?>
+                                        <div class="medialist">
+                                            <div class="title"><?php echo $p['Media']['title'];?></div><div class="action"><a href="#"><span class="fa fa-eye smalllink"></span></a> &nbsp; <a href="#"><span class="fa fa-download smalllink"></span></a></div> 
+                                        </div>
+                                        <?php
+                                        
+                                    }
+                                    ?>
+                                </div>
 							</div>
 							<div class="4u">
-								<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales. Diam 
-								tempor dui lacinia eget ornare varius gravida. Gravida dis placerat lectus ante 
-								vel nunc euismod est turpis sodales. Diam tempor dui lacinia accumsan vivamus 
-								augue cubilia vivamus nisi eu eget ornare varius gravida euismod.  Gravida dis 
-								lorem ipsum dolor placerat magna tempus feugiat.</p>
-								<p>Lectus ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia 
-								accumsan vivamus augue cubilia vivamus nisi eu eget ornare varius gravida dolore 
-								euismod lorem ipsum dolor sit amet consequat eget ornare varius gravida euismod.
-								Gravida dis lorem ipsum dolor placerat magna tempus feugiat magna tempus lorem.</p>
-								<p>Lectus ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia 
-								accumsan vivamus augue cubilia.</p>
+                                <h3>Publication</h3>
+								<div class="div">
+                                    <?php
+                                    foreach($publication as $p)
+                                    {
+                                        ?>
+                                        <div class="medialist">
+                                            <div class="title"><?php echo $p['Media']['title'];?></div><div class="action"><a href="#"><span class="fa fa-eye smalllink"></span></a> &nbsp; <a href="javascript:void(0)" onclick="$('.popover').load('https://docs.google.com/viewer?url=<?php echo urlencode('http://web-nepal.com/isangh/doc/962344.pdf');?>&embed=true');" class="media"><span class="fa fa-download smalllink"></span></a></div> 
+                                        </div>
+                                        <?php
+                                        
+                                    }
+                                    ?>
+                                </div>
 							</div>
 							<div class="4u">
-								<p>Placerat lectus ante vel nunc euismod est turpis sodales. Diam tempor dui 
-								lacinia eget ornare varius gravida. Gravida dis placerat lectus ante vel nunc 
-								euismod est turpis sodales. Diam tempor dui lacinia accumsan vivamus augue 
-								cubilia vivamus nisi eu eget ornare varius gravida euismod.  Gravida dis 
-								lorem ipsum dolor placerat magna tempus feugiat. Lectus ante vel nunc euismod 
-								est turpis sodales. Diam tempor dui lacinia dolore.</p>
-								<p>Accumsan vivamus augue cubilia vivamus nisi eu eget ornare varius gravida 
-								dolore euismod lorem ipsum dolor sit amet conseismod lorem ipsum dolor sit amet 
-								consequat lorem ipsum consequat feugiat sed tempus euismod feugiat veroeros.</p>
+                                <h3>Audio-Visual</h3>
+								<div class="div">
+                                    <?php
+                                    foreach($av as $p)
+                                    {
+                                        ?>
+                                        <div class="medialist">
+                                            <div class="title"><?php echo $p['Media']['title'];?></div><div class="action"><a href="#"><span class="fa fa-eye smalllink"></span></a> &nbsp; <a href="#"><span class="fa fa-download smalllink"></span></a></div> 
+                                        </div>
+                                        <?php
+                                        
+                                    }
+                                    ?>
+                                </div>
 								<footer>
 									<a href="#fourth" class="button scrolly">Ipsum ornare lorem dolor</a>
 								</footer>
@@ -427,7 +373,7 @@ HUDA has been operated with 6 full and part time staff members. In addition, gov
 		-->
 		
 		<!-- Fourth -->
-			<section id="fourth" class="main">
+			<section id="fifth" class="main">
 				<header>
 					<div class="container">
 						<h2>Sed feugiat ipsum consequat</h2>
@@ -459,4 +405,36 @@ HUDA has been operated with 6 full and part time staff members. In addition, gov
 			</section>
 			
 		<!-- Footer -->
-			
+        <script>
+            $(function(){
+               
+               $('.read').click(function(){
+                if($(this).attr('class').replace('no')==$(this).attr('class'))
+                $(this).html('Hide Detail');
+                else
+                $(this).html('Continue Reading');
+                var id = $(this).attr('id');
+                var id = id.replace('read','');
+                if($(this).attr('class').replace('no')==$(this).attr('class')){
+                $('.hide'+id).hide();
+                $('.continue'+id).show();
+                $(this).addClass('no');
+                }
+                else
+                {
+                    $('.hide'+id).show();
+                $('.continue'+id).hide();
+                $(this).removeClass('no');
+                
+                }
+                
+                //$(this).attr('id','noread'+id);
+                //$(this).removeClass('read');
+                
+                
+               });
+              
+            });
+        </script>
+		<div class="popover">
+        </div>	
