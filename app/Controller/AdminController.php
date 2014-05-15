@@ -25,7 +25,7 @@ class AdminController extends AppController
     function loginVerify()
     {
         $this->loadModel('Admin');
-        if(isset($_POST))
+        if(isset($_POST) && $_POST)
         {
             $q=$this->Admin->find('first',array('conditions'=>array('username'=>$_POST['un'] , 'password'=>$_POST['pw'])));
             if($q)

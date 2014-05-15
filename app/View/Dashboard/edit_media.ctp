@@ -45,7 +45,29 @@
 </div>
 <div class="file"  <?php if(!in_array($ext,$arr_ext)){?>style="display: none;"<?php }?>>
     <label>Upload File</label>
-    <input type="file" name="file" />
+    <?php
+    $file = $c['Media']['file'];
+    if($file)
+    {
+        $arr = explode('.',$file);
+        $ext = end($arr);
+        if(strtolower($ext) == 'pdf')
+        {
+            $class = 'fa-file-pdf-o';
+        }
+        else
+        if(strtolower($ext) == 'pdf')
+        {
+            $class = 'fa-file-word-o';
+        }
+        else
+        $class = 'fa-file-sound-0';
+        
+    }
+    else
+    $class='';
+    ?>
+    <input type="file" name="file" /> <span class="fa <?php echo $class?>"></span> <?php echo $file;?>
 </div>
 <div class="youtube" <?php if($c['Media']['youtube']==''){?>style="display: none;"<?php }?>>
     <label>Youtube Url</label>

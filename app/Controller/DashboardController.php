@@ -157,11 +157,9 @@ class DashboardController extends AppController
                 $ext = strtolower($ext);
                 if($ext == 'mp3' || $ext == 'wav' || $ext == 'doc' || $ext == 'pdf' || $ext == 'docx')
                 {
-                    $path = $_SERVER['DOCUMENT_ROOT'].'/app/webroot/doc/'.$_POST['file'];
-                    if($_SERVER['SERVER_NAME'] == 'localhost')
-                    {
-                        $path = $_SERVER['DOCUMENT_ROOT'].'/isangh/app/webroot/doc/'.$_POST['file'];
-        			}
+                    
+                        $path = APP.'webroot/doc/'.$_POST['file'];
+        			
                     move_uploaded_file($_FILES['file']['tmp_name'],$path);
                 }
                 else{
@@ -213,11 +211,8 @@ class DashboardController extends AppController
                 $ext = strtolower($ext);
                 if($ext == 'mp3' || $ext == 'wav' || $ext == 'doc' || $ext == 'pdf' || $ext == 'docx')
                 {
-                    $path = $_SERVER['DOCUMENT_ROOT'].'/app/webroot/doc/'.$_POST['file'];
-                    if($_SERVER['SERVER_NAME'] == 'localhost')
-                    {
-                        $path = $_SERVER['DOCUMENT_ROOT'].'/isangh/app/webroot/doc/'.$_POST['file'];
-        			}
+                      $path = APP.'webroot/doc/'.$_POST['file'];
+        			
                     move_uploaded_file($_FILES['file']['tmp_name'],$path);
                 }
                 else{

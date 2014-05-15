@@ -32,7 +32,25 @@ class PagesController extends AppController {
 
 function index()
 {
-    
+    $this->loadModel('Media');
+    $a = $this->Page->find('first',array('conditions'=>array('id'=>2)));
+    $ac = $this->Page->find('all',array('conditions'=>array('parent'=>2)));
+    $d = $this->Page->find('first',array('conditions'=>array('id'=>3)));
+    $dc = $this->Page->find('all',array('conditions'=>array('parent'=>3)));
+    $act = $this->Page->find('first',array('conditions'=>array('id'=>4)));
+    $actc = $this->Page->find('all',array('conditions'=>array('parent'=>4)));
+    $pr =  $this->Media->find('all',array('conditions'=>array('media_type'=>'Print')));
+    $this->set('print',$pr);
+    $pu =  $this->Media->find('all',array('conditions'=>array('media_type'=>'Publication')));
+    $this->set('publication',$pu);
+    $av =  $this->Media->find('all',array('conditions'=>array('media_type'=>'Audio-Visual')));
+    $this->set('av',$av);
+    $this->set('about',$a);
+    $this->set('achild',$ac);
+    $this->set('act',$act);
+    $this->set('actc',$actc);
+    $this->set('depart',$d);
+    $this->set('child',$dc);
 }
 
 }

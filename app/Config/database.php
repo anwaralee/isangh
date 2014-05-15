@@ -59,9 +59,11 @@
  * For Postgres : http://www.postgresql.org/docs/9.2/static/sql-set.html
  * For Sql Server : http://msdn.microsoft.com/en-us/library/ms190356.aspx
  */
+ if($_SERVER['SERVER_NAME']=='localhost'){
 class DATABASE_CONFIG {
-
-	public $default = array(
+    
+    
+        public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
@@ -70,7 +72,8 @@ class DATABASE_CONFIG {
 		'database' => 'db_isangh',
 		'prefix' => '',
 		//'encoding' => 'utf8',
-	);
+	); 
+    
 
 	public $test = array(
 		'datasource' => 'Database/Mysql',
@@ -82,4 +85,35 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
+}
+}
+else
+{
+ class DATABASE_CONFIG {
+    
+    
+        
+        public $default = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'webnepal_isangh',
+		'password' => 'isangh123',
+		'database' => 'webnepal_isangh',
+		'prefix' => '',
+		//'encoding' => 'utf8',
+	);    
+    
+
+	public $test = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'user',
+		'password' => 'password',
+		'database' => 'test_database_name',
+		'prefix' => '',
+		//'encoding' => 'utf8',
+	);
+}   
 }
