@@ -152,7 +152,7 @@
                                     {
                                         ?>
                                         <div class="medialist">
-                                            <div class="title"><?php echo $p['Media']['title'];?></div><div class="action"><a href="#"><span class="fa fa-eye smalllink"></span></a> &nbsp; <a href="#"><span class="fa fa-download smalllink"></span></a></div> 
+                                            <div class="title"><?php echo $p['Media']['title'];?></div><div class="action"><a href="#popup" class="open-popup-link" onclick="$('.popover').html('<a class=\'popup-modal-dismiss\' href=\'#fourth\'>Close</a></p><iframe src=\'https://docs.google.com/gview?url=<?php echo urlencode('http://web-nepal.com/isangh/doc/'.$p['Media']['file']);?>&embedded=true\' style=\'width:500px; height:630px;\' frameborder=\'0\'></iframe><p>');" class="media"><span class="fa fa-eye smalllink"></span></a> &nbsp; <a href="http://web-nepal.com/isangh/doc/<?php echo $p['Media']['file'];?>"><span class="fa fa-download smalllink"></span></a></div> 
                                         </div>
                                         <?php
                                         
@@ -167,8 +167,9 @@
                                     foreach($publication as $p)
                                     {
                                         ?>
+                                        
                                         <div class="medialist">
-                                            <div class="title"><?php echo $p['Media']['title'];?></div><div class="action"><a href="#"><span class="fa fa-eye smalllink"></span></a> &nbsp; <a href="javascript:void(0)" onclick="$('.popover').load('https://docs.google.com/viewer?url=<?php echo urlencode('http://web-nepal.com/isangh/doc/962344.pdf');?>&embed=true');" class="media"><span class="fa fa-download smalllink"></span></a></div> 
+                                            <div class="title"><?php echo $p['Media']['title'];?></div><div class="action"><a href="#popup" class="open-popup-link" onclick="$('.popover').html('<a class=\'popup-modal-dismiss\' href=\'#fourth\'>Close</a></p><iframe src=\'https://docs.google.com/gview?url=<?php echo urlencode('http://web-nepal.com/isangh/doc/'.$p['Media']['file']);?>&embedded=true\' style=\'width:500px; height:630px;\' frameborder=\'0\'></iframe><p>');" class="media"><span class="fa fa-eye smalllink"></span></a> &nbsp; <a href="http://web-nepal.com/isangh/doc/<?php echo $p['Media']['file'];?>"><span class="fa fa-download smalllink"></span></a></div> 
                                         </div>
                                         <?php
                                         
@@ -436,5 +437,18 @@
               
             });
         </script>
-		<div class="popover">
-        </div>	
+		<div  id="popup" class="popover white-popup mfp-hide">
+        </div>
+        <style>
+        .white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  height: auto;
+  max-width: 538px;
+  margin: 20px auto;
+  max-height:735px;
+  z-index: 1000;
+}
+	</style>
