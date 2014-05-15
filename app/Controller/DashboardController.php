@@ -95,12 +95,21 @@ class DashboardController extends AppController
         }
     }
     
-    function media()
+    function media($type=null)
     {
         $this->loadModel('Media');
         //$q = $this->Media->find('all', array('fields'=>'DISTINCT Media.media_type'));
 //        $this->set('mtype',$q);
+        if($type)
+        {
+            $q = $this->Media->find('all',array(
+        'conditions'=>array('media_type = '=>$type),'order'=>'id DESC'));
+        }
+        else
+        {
         $q = $this->Media->find('all');
+        }
+        $this->set('t',$type);
         $this->set('content',$q);
     }
     
@@ -213,7 +222,7 @@ class DashboardController extends AppController
                 }
                 else{
                 $this->Session->setFlash('Invalid File Extension');    
-                $this->redirect('editMedia/'.$id);
+                $this->redirect('addMedia');
                 }
                 
             }
@@ -228,6 +237,21 @@ class DashboardController extends AppController
         $this->loadModel('Media');
         $this->Media->delete($id);
         $this->redirect(array('controller' => 'dashboard', 'action' => 'viewMedia', $type));
+    }
+    
+    function filterMedia($type)
+    {
+        $this->loadModel('Media');
+        $q = $this->Media->find('all',array(
+        'conditions'=>array('media_type = '=>$type),'order'=>'id DESC'));
+        $this->set('content',$q);
+    }
+    
+    function getMediaType()
+    {
+        $this->loadModel('Media');
+        $q = $this->Media->find('all', array('fields'=>'DISTINCT Media.media_type'));
+        $this->set('mtype',$q);   
     }
 }
 ?>
