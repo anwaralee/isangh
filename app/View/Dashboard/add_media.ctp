@@ -11,7 +11,7 @@
     $publication = '';
     $av = '';
 ?>
-<h1>Edit Media Content</h1>
+<h1>Add Media Content</h1>
 <form action="<?php echo $this->webroot; ?>dashboard/addMedia" method="post" enctype="multipart/form-data">
 <label>Media Title</label>
 <input type="text" value="<?php echo $c['Media']['title'];?>" name="title" />
@@ -40,7 +40,7 @@
     <textarea name="youtube"><?php echo $c['Media']['youtube'];?></textarea>
 </div>
 <hr />
-<input type="submit" value="Edit" name="submit" class="btn btn-primary btn-large" />
+<input type="submit" value="Save" name="submit" class="btn btn-primary btn-large" />
 </form>
 <script>
 $(function(){
