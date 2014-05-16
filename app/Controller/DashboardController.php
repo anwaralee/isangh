@@ -109,7 +109,7 @@ class DashboardController extends AppController
         {
         $q = $this->Media->find('all');
         }
-        $this->set('t',$type);
+        $this->set('type',$type);
         $this->set('content',$q);
     }
     
@@ -234,19 +234,95 @@ class DashboardController extends AppController
         $this->redirect(array('controller' => 'dashboard', 'action' => 'viewMedia', $type));
     }
     
-    function filterMedia($type)
-    {
-        $this->loadModel('Media');
-        $q = $this->Media->find('all',array(
-        'conditions'=>array('media_type = '=>$type),'order'=>'id DESC'));
-        $this->set('content',$q);
-    }
     
     function getMediaType()
     {
         $this->loadModel('Media');
         $q = $this->Media->find('all', array('fields'=>'DISTINCT Media.media_type'));
-        $this->set('mtype',$q);   
+        return $q;
+    }
+    
+    function addActImage()
+    {
+        $this->loadModel('Image');
+        $q = $this->Image->find('all');
+        $this->set('content',$q);
+        if(isset($_POST) && $_POST)
+        {
+                $name = $_FILES['file']['name'];
+                $arr = explode('.',$name);
+                $ext = end($arr);
+                $rand = rand(100000,999999).'_'.rand(100000,999999);
+                $_POST['file'] = $rand.'.'.$ext;
+                $ext = strtolower($ext);
+                if($ext == 'jpg' || $ext == 'jpeg' || $ext == 'gif' || $ext == 'png' || $ext == 'bmp')
+                {
+                    $path = APP.'webroot/doc/'.$_POST['file'];
+                    move_uploaded_file($_FILES['file']['tmp_name'],$path);
+                       
+                }
+                else{
+                $this->Session->setFlash('Invalid File Extension');    
+                $this->redirect('addActImage');
+                }  
+            $this->Image->create();
+            $this->Image->save($_POST);
+            $this->Session->setFlash('Image Successfully Added!');
+            $this->redirect('/dashboard/pages');
+        }
+    }
+    
+    function deleteActImage($id)
+    {
+        $this->loadModel('Image');
+        $this->Image->delete($id);
+        $this->Session->setFlash('Image Successfully Deleted!');
+        $this->redirect('/dashboard/addActImage');
+    }
+    
+    function editActImage($id)
+    {
+        $this->loadModel('Image');
+        //$q = $this->Image->find('all',array('conditions'=>array('id = '=>$id)));
+         $q = $this->Image->findById($id);
+        $this->set('content',$q);
+        if(isset($_POST) && $_POST)
+        {
+            $old = $_POST['oldfile'];
+            if(isset($_FILES['file']) && $_FILES['file']['name'])
+            {
+                $name = $_FILES['file']['name'];
+                $arr = explode('.',$name);
+                $ext = end($arr);
+                $rand = rand(100000,999999).'_'.rand(100000,999999);
+                $_POST['file'] = $rand.'.'.$ext;
+                $ext = strtolower($ext);
+                if($ext == 'jpg' || $ext == 'jpeg' || $ext == 'gif' || $ext == 'png' || $ext == 'bmp')
+                {
+                    $oldpath = APP.'webroot/doc/'.$old;
+                    unlink($oldpath);
+                    $path = APP.'webroot/doc/'.$_POST['file'];
+                    move_uploaded_file($_FILES['file']['tmp_name'],$path);
+                    $this->Image->id = $id;
+                    $this->Image->save($_POST);
+                       
+                }
+                else
+                {
+                    $this->Session->setFlash('Invalid File Extension');    
+                    $this->redirect('editActImage/'.$id);
+                }
+            }
+            else
+            {
+            $this->Image->id = $id;
+            $this->Image->save($_POST);
+            }
+            $this->Session->setFlash('Image Activities Successfully Edited!');
+            $this->redirect('addActImage');
+        }
+        
+        
     }
 }
 ?>

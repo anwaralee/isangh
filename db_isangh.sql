@@ -1,21 +1,30 @@
-﻿-- phpMyAdmin SQL Dump
--- version 4.0.4
+-- phpMyAdmin SQL Dump
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2014 at 06:36 PM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.16
+-- Generation Time: May 16, 2014 at 06:01 PM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
+--
+-- Database: `db_isangh`
+--
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `admins`
+--
 
 CREATE TABLE IF NOT EXISTS `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -31,6 +40,34 @@ CREATE TABLE IF NOT EXISTS `admins` (
 
 INSERT INTO `admins` (`id`, `username`, `email`, `password`) VALUES
 (1, 'admin', 'justdoit2045@gmail.com', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE IF NOT EXISTS `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `title`, `file`) VALUES
+(8, 'ISN 1', '527203_401107.jpg'),
+(9, 'ISN 2', '480126_247903.jpg'),
+(10, 'ISN 3', '796478_333322.jpg'),
+(11, 'ISN 4', '347741_949160.jpg'),
+(12, 'ISN 5', '339776_334091.jpg'),
+(13, 'ISN 6', '487817_748660.jpg'),
+(14, 'ISN 7', '591473_150289.jpg'),
+(15, 'ISN 8', '309729_968276.jpg'),
+(16, 'ISN 9', '735943_878793.jpg');
 
 -- --------------------------------------------------------
 
@@ -71,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `description` text NOT NULL,
   `parent` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `pages`
@@ -95,7 +132,9 @@ INSERT INTO `pages` (`id`, `title`, `description`, `parent`) VALUES
 (18, 'Masjid Council', 'This Council is actively involved in renovating the old mosques and constructing new mosques where there is no mosque in the Muslim populated areas. It also arranges Imams for these mosques. The Council has been organizing circles for memorization and propagation of Holy Quran. This council is enjoying 15 Imams noble services who played their active role to improve the society in playing religious social 8 moral field.', 3),
 (19, 'Students'' Education Foundation Nepal (SEF Nepal)', 'SEF is a non-profitable and Non-governmental organization, registered with the government of Nepal on 1st January 1996. SEF Nepal works under the umbrella of Islami Sangh Nepal and is engaged in various educational activities directly or indirectly concerned with human development. As here in Nepal, Muslims are backward in all the sectors of life, SEF Nepal has tried to identify the essential needs of the community. Since its inception, SEF Nepal is the counterpart organization of scholarship Division, Islamic Development Bank (IDB) Jeddah and is responsible for implementation of IDB Scholarship Programme for graduation program in various professional courses. Beside, SEF conducts guidance and counseling activities as well as skill development programs to enhance the personal skill as well as to make students more competitive. Moreover it connects the Muslim students with the Islamic activities and works for community development projects. ', 3),
 (20, 'HuDA', 'Human Development Academy (HuDA) is a community based training center which has been established in Bagbazar, Kathmandu in 2009. HUDA is focusing on providing vocational training to the Muslims especially those who are from the low income sector. It is expected that by providing training to the members of muslim society it will be possible to have a direct and positive effect on the well being of the whole muslim community. HUDA is utilizing volunteers who are affiliated with Muslim community of Kathmandu. Each trainee is expected to participate in a 3 to 12 months training (depending upon the type of training). These trainings provide vocational training through professional teaching methods. Trainees who demonstrate proficiency during the initial training will be invited to participate in Training of Trainers (TOT), an advance training program to learn adult teaching techniques. Each trainee will be a trainer after taking TOT. HUDA has been operated with 6 full and part time staff members. In addition, governing board made up of community members, members of Islami Sangh Nepal is providing overall direction of the center’s operation. Periodic evaluation is conducted to assess the effectiveness of HUDA on (a) helping participants to become professional (b) helping the volunteers to become effective trainers and (c) the improvement of the well being of Muslim community as a whole. ', 3),
-(21, 'National Muslim Forum', 'This department pays its best attention to secure the political welfare of muslim community. It campaigns for muslim rights in the constitution as it is under construction and defend the aggressive activities against muslims. It plays important role in recognizing madrasas, masaajids, and charity trust. The ISN is keen to create golden atmosphere for muslim community, good understanding among them. All these activities are done by the department.', 3);
+(21, 'National Muslim Forum', 'This department pays its best attention to secure the political welfare of muslim community. It campaigns for muslim rights in the constitution as it is under construction and defend the aggressive activities against muslims. It plays important role in recognizing madrasas, masaajids, and charity trust. The ISN is keen to create golden atmosphere for muslim community, good understanding among them. All these activities are done by the department.', 3),
+(22, 'new test', '<p>this is test</p>', 4),
+(23, 'test1', '<p>test1``</p>', 4);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

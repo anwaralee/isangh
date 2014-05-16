@@ -4,15 +4,15 @@ if($content)
 {
 ?>
 <a href="<?php echo $this->webroot;?>dashboard/addMedia" class="btn btn-success">Add Media</a>
-<?php $this->requestAction('/dashboard/getMediaType');?>
+<?php $mtype = $this->requestAction('/dashboard/getMediaType');?>
 Filter By: <select onchange="window.location='<?php echo $this->webroot;?>dashboard/media/'+$(this).val();">
-            <option value="">None</option>
+            <option value="">All</option>
             <?php if($mtype) 
             {
                 foreach($mtype as $t)
                 {
                     ?>
-                    <option value="<?php echo $t['Media']['media_type']; ?> " ><?php echo $t['Media']['media_type']; ?></option>
+                    <option value="<?php echo $t['Media']['media_type']; ?>" <?php if($type == $t['Media']['media_type']){ ?> selected="selected" <?php } ?> ><?php echo $t['Media']['media_type']; ?></option>
                     <?php
                 }
             }

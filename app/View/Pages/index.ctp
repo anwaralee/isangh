@@ -111,21 +111,31 @@
 					<div class="container">
 						<div class="row">
 							<div class="12u">
-								<div class="row no-collapse">
-									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic01.jpg" alt="" /></a></div>
-									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic02.jpg" alt="" /></a></div>
-                                    <div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic03.jpg" alt="" /></a></div>
-								</div>
-								<div class="row no-collapse">
-									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic04.jpg" alt="" /></a></div>
-									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic05.jpg" alt="" /></a></div>
-                                    <div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic06.jpg" alt="" /></a></div>
-								</div>
-								<div class="row no-collapse">
-									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic07.jpg" alt="" /></a></div>
-									<div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic08.jpg" alt="" /></a></div>
-                                    <div class="4u"><a href="javascript:void(0);" class="image full"><img src="images/pic09.jpg" alt="" /></a></div>
-								</div>
+									<?php
+                                     if($actimg)
+                                        {
+                                            $i = 0;
+                                        foreach($actimg as $img)
+                                            {
+                                                $i++;
+                                                if((($i-1)%3)==0)
+                                                {
+                                                    ?>
+                                                    <div class="row no-collapse">
+                                                    <?php
+                                                }
+                                            ?>
+                                            <div class="4u"><a href="javascript:void(0);" class="image full"><img src="<?php echo $this->webroot; ?>doc/<?php echo $img['Image']['file'];?>" alt="<?php echo $img['Image']['title'];?>" /></a></div>
+                                            
+                                <?php   
+                                if(($i%3) == 0)
+                                {?>
+                                </div>
+                                <?php }                             
+                            }
+                        }
+                        ?>
+						
 							</div>
 						</div>
 					</div>
